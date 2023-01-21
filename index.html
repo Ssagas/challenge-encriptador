@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    <script  defer src="encriptador.js"></script>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body> 
@@ -23,13 +23,14 @@
                 <p><img id="admiracion" src="imagenes/bi_exclamation-circle-fill.png">Solo letras minúsculas y sin acentos.</p>
             </div>    
             <div class="botones">
-                <button  id="boton-encriptar"  class="boton"  onclick="encriptar()">Encriptar</button><button class="boton">Desencriptar</button>
+                <button  id="boton-encriptar"  class="boton"  onclick="encriptar()">Encriptar</button>
+                <button class="boton">Desencriptar</button>
             </div>
         </div>
         <div class="rectangulo">
-            <a href='https://.pngtree.com/so/Bulldog'><img class="muneco" src="imagenes/—Pngtree—handsome pet bulldog with sunglasses_6595954.png"></a>
+            <a href='https://.pngtree.com/so/Bulldog'><img class="muneco" id="imagen" src="imagenes/—Pngtree—handsome pet bulldog with sunglasses_6595954.png"></a>
             <textarea class="texto-encriptado" id="texto-encriptado"></textarea>
-            <div class="mensaje">
+            <div class="mensaje" id="msg">
                 <p id="mensaje1">Ningún mensaje fue encontrado</p>
                 <p id="mensaje2">Ingresa el texto que desees encriptar o desencriptar</p>
             </div>
@@ -41,6 +42,7 @@
     <footer>
         <p>Sonia Sagastume, 2023</p>
     </footer>
-   
+    <script src="encriptador.js"></script>
 </body>
+
 </html>
