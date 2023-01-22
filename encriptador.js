@@ -1,5 +1,3 @@
- //document.addEventListener("DOMContentLoaded", function() {
-    
     let tEncriptado = "";
 
     let reglasEncriptador = {  //declarando el objeto para realizar la encriptación
@@ -12,20 +10,19 @@
 
     let propiedades = Object.keys(reglasEncriptador);
     
-    function btnEncriptar(){
+    function encriptar(){
 
         let cajaT = document.getElementById("caja-texto");
         let textoEncriptado = document.getElementById("texto-encriptado");
    
         let mensaje = document.getElementById ("msg");
         let img = document.getElementById ('imagen');   
-        let btnCopiar = document.getElementById ("boton-copiar");
-
+       
         textoEncriptado.style.display = "block";
+        textoEncriptado.style.border= "none";
         if(img.style.display=="block") img.style.display = "none";
         mensaje.style.display = "none";
-        btnCopiar.style.display = "block";
-        
+       
         
         textoEncriptado.value= encriptarTexto(cajaT.value, propiedades.length);
         
@@ -42,8 +39,8 @@
   //});
     
   
-    
-     
+  let btnCopiar = document.getElementById ("boton-copiar");
+  btnCopiar.style.display = "block";   
 
 
 

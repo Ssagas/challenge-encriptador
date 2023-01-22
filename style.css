@@ -71,8 +71,6 @@ main{
 .botones{
     position:absolute;
     width:90%;
-    /*height:25%;
-    bottom:0%;*/
     top: 430px;
     left:12%;
 }
@@ -85,13 +83,16 @@ main{
     background-color:#0a3b52;
     color:white;
     left: 10px;
-    margin:5px;
-    display:block;
-    
+    cursor: pointer;
+    overflow: hidden;
+    margin: 5px;
+    display: block;
+    transition: 0.3s all
 }
 
-#boton-encriptar:{
-
+.boton:hover{
+   background: #49768b;
+   transform: scale(1.1);
 }
 
 .rectangulo{
@@ -220,6 +221,7 @@ footer{
         width:69%;
         height:480px;
         float:left;
+        margin: 0;
     }
     
     #caja-texto{
