@@ -9,13 +9,23 @@
         let mensaje = document.getElementById ("msg");
         let img = document.getElementById ('imagen');   
         let btnCopiar = document.getElementById ("boton-copiar");
-                      
+        
+        let texto = cajaT.value;
+        
         btnCopiar.style.display = "block";  
         textoEncriptado.style.display = "block";
         textoEncriptado.style.border= "none";
         if(img.style.display=="block") img.style.display = "none";
         mensaje.style.display = "none";
        
+
+        var mayuscula = /[A-Z]/.test(texto);
+
+    // Si el valor contiene algún caracter en mayúsculas, muestra una alerta y convierte el texto a minúsculas
+    if (mayuscula) {
+      alert("Solo se permiten caracteres en minúsculas");
+      cajaT.value = texto.toLowerCase();
+    }
        // textoEncriptado.value= encriptarTexto(cajaT.value, propiedades.length);
         textoEncriptado.value= encriptarTexto(cajaT.value);
     
