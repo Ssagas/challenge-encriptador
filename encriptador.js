@@ -1,17 +1,6 @@
     let tEncriptado = "";
-    let tDesencriptado = "";
-
-    let reglasEncriptador = {  //declarando el objeto para realizar la encriptación
-        "a" : "ai",
-        'e': 'enter',
-        'i': 'imes',
-        'o': 'ober',
-        'u': 'ufat',
-    };
-
-    let propiedades = Object.keys(reglasEncriptador);
-    let arrayValores = Object.values(reglasEncriptador);
-    
+  
+     //función para el botón encriptar
     function encriptar(){
 
         let cajaT = document.getElementById("caja-texto");
@@ -20,25 +9,32 @@
         let mensaje = document.getElementById ("msg");
         let img = document.getElementById ('imagen');   
         let btnCopiar = document.getElementById ("boton-copiar");
-        
+                      
         btnCopiar.style.display = "block";  
         textoEncriptado.style.display = "block";
         textoEncriptado.style.border= "none";
         if(img.style.display=="block") img.style.display = "none";
         mensaje.style.display = "none";
        
-        textoEncriptado.value= encriptarTexto(cajaT.value, propiedades.length);
+       // textoEncriptado.value= encriptarTexto(cajaT.value, propiedades.length);
+        textoEncriptado.value= encriptarTexto(cajaT.value);
+    
     }
     
-    function encriptarTexto(texto,i){
-        if((i<=propiedades.length)&&(i!=0)){
-            tEncriptado = texto.replaceAll(propiedades[i-1], reglasEncriptador[propiedades[i-1]]);
-            i--;
-            if (i>=0) encriptarTexto(tEncriptado, i);
-        } 
-           return tEncriptado;
-    }  //end de la funcion encriptarTexto
+    //function encriptarTexto(texto,i){ 
+      function encriptarTexto(texto){
+    
+           tEncriptado = texto.replaceAll("e", "enter");
+           tEncriptado = tEncriptado.replaceAll("i", "imes");
+           tEncriptado = tEncriptado.replaceAll("a","ai");
+           tEncriptado = tEncriptado.replaceAll("o", "ober");
+           tEncriptado = tEncriptado.replaceAll("u","ufat");
+     return tEncriptado;
+
+    }  
      
+    //función del botón copiar
+
     function copyText() {
       
         /* Select text area by id*/
@@ -55,29 +51,27 @@
         div with id clipboard */
 
         cajaTexto.value = texto.value;
-        texto.value= "";
+        texto.value= " ";
         texto.border="none";
+        texto.style.border= "none";
 
     }
 
-    
-    function encriptar(){
+    //función del botón desencriptar
 
-        let cajaT = document.getElementById("caja-texto");
-        let textoEncriptado = document.getElementById("texto-encriptado");
-   
-        textoEncriptado.style.border= "none";
-        if(img.style.display=="block") img.style.display = "none";
-        mensaje.style.display = "none";
-       
-        textoEncriptado = encriptarTexto(cajaT.value, arrayValores.length);
+    function desencriptar(){
+     
+        let texto = document.getElementById("caja-texto");
+        let tDesencriptado = document.getElementById("texto-encriptado");
+        let textoDesencriptado=texto.value;
+        textoDesencriptado=textoDesencriptado.replaceAll("ai","a");
+        textoDesencriptado=textoDesencriptado.replaceAll("enter", "e");
+        textoDesencriptado = textoDesencriptado.replaceAll("imes", "i");
+        textoDesencriptado = textoDesencriptado.replaceAll("ober", "o");
+        textoDesencriptado = textoDesencriptado.replaceAll("ufat","u");
+
+        tDesencriptado.value=textoDesencriptado;
+        texto.value="";
+        tDesencriptado.style.border="none";
+
     }
-    
-    function encriptarTexto(texto,i){
-        if((i<=arrayValores.length)&&(i!=0)){
-            tDesencriptado = texto.replaceAll(arrayValores[i-1], reglasEncriptador[arrayValores[i-1]]);
-            i--;
-            if (i>=0) desencriptarTexto(tEncriptado, i);
-        } 
-           return tDesencriptado;
-    }  //end de la funcion encriptarTexto
