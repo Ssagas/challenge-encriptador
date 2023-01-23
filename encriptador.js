@@ -1,4 +1,5 @@
     let tEncriptado = "";
+    let tDesencriptado = "";
 
     let reglasEncriptador = {  //declarando el objeto para realizar la encriptación
         "a" : "ai",
@@ -9,6 +10,7 @@
     };
 
     let propiedades = Object.keys(reglasEncriptador);
+    let arrayValores = Object.values(reglasEncriptador);
     
     function encriptar(){
 
@@ -54,10 +56,28 @@
 
         cajaTexto.value = texto.value;
         texto.value= "";
+        texto.border="none";
 
-        document.getElementById("clipboard")
-            .innerHTML = texto.value;
     }
 
+    
+    function encriptar(){
 
-
+        let cajaT = document.getElementById("caja-texto");
+        let textoEncriptado = document.getElementById("texto-encriptado");
+   
+        textoEncriptado.style.border= "none";
+        if(img.style.display=="block") img.style.display = "none";
+        mensaje.style.display = "none";
+       
+        textoEncriptado = encriptarTexto(cajaT.value, arrayValores.length);
+    }
+    
+    function encriptarTexto(texto,i){
+        if((i<=arrayValores.length)&&(i!=0)){
+            tDesencriptado = texto.replaceAll(arrayValores[i-1], reglasEncriptador[arrayValores[i-1]]);
+            i--;
+            if (i>=0) desencriptarTexto(tEncriptado, i);
+        } 
+           return tDesencriptado;
+    }  //end de la funcion encriptarTexto
